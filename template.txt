@@ -1,0 +1,6 @@
+<Nome cognome>
+<aaaa-mm-dd> | <hh:mm> | <hh:mm> | commessa | note
+<aaaa-mm-dd> | <hh:mm> | <hh:mm> | commessa | note
+<aaaa-mm-dd> | <hh:mm> | <hh:mm> | commessa | note
+<aaaa-mm-dd> | <hh:mm> | <hh:mm> | commessa | note
+
