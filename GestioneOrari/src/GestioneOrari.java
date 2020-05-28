@@ -1,3 +1,4 @@
+
 import Parser.Parser;
 
 public class GestioneOrari {
@@ -8,9 +9,10 @@ public class GestioneOrari {
 		String data = new String();
 		String commessa = new String();
 		
-		Parser parser = new Parser(file);
+		Parser parser = new Parser("/home/ant/Desktop/test.txt");
 		
 		parser.parse();
+	
 		
 		float numeroOreLavoroGiorno = parser.getDailyWorkHours(data);
 		float numeroOreLavoroCommessa = parser.getOrderWorkHours(commessa);
