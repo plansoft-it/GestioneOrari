@@ -13,7 +13,7 @@ public class Elaborato {
 		rowsList = new ArrayList<>();
 	}
 	
-	public void addNewRowToRowsList(Date date, String startHour, String endHour, String order, String note) {
+	public void addRowToRows(Date date, String startHour, String endHour, String order, String note) {
 		rowsList.add(new Row(date, startHour, endHour, order, note));
 	}
 	
