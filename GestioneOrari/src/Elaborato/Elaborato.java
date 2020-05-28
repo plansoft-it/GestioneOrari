@@ -7,7 +7,7 @@ import java.util.List;
 import row.Row;
 
 public class Elaborato {
-	private List<Row> rowsList;
+	private List<Row> rows;
 	
 	public Elaborato() {
 		rowsList = new ArrayList<>();
