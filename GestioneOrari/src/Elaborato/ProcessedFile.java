@@ -6,18 +6,18 @@ import java.util.List;
 
 import row.Row;
 
-public class Elaborato {
+public class ProcessedFile {
 	private List<Row> rows;
 	
-	public Elaborato() {
-		rowsList = new ArrayList<>();
+	public ProcessedFile() {
+		rows = new ArrayList<>();
 	}
 	
 	public void addRowToRows(Date date, String startHour, String endHour, String order, String note) {
-		rowsList.add(new Row(date, startHour, endHour, order, note));
+		rows.add(new Row(date, startHour, endHour, order, note));
 	}
 	
-	public List<Row> getRowsList(){
-		return rowsList;
+	public List<Row> getRows(){
+		return rows;
 	}
 }

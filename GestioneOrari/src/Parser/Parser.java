@@ -1,15 +1,15 @@
 package Parser;
 
-import Elaborato.Elaborato;
+import Elaborato.ProcessedFile;
 
 public class Parser {
 
-	private String file;
-	private Elaborato elaborato;
+	private String filePath;
+	private ProcessedFile processedFile;
 
-	public Parser(String file) {
-		this.file = file;
-		elaborato = new Elaborato();
+	public Parser(String filePath) {
+		this.filePath = filePath;
+		processedFile = new ProcessedFile();
 	}
 
 	// esegue il parse del file e inizializza elaborato
