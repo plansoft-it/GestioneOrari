@@ -9,6 +9,7 @@ public class Parser {
 
 	public Parser(String file) {
 		this.file = file;
+		elaborato = new Elaborato();
 	}
 
 	// esegue il parse del file e inizializza elaborato
