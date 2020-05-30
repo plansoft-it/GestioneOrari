@@ -30,6 +30,10 @@ public class Parser {
 			String[] subStrings = rawRow.split(" *\\| *");
 			try {
 				Date date = checkDate(subStrings[0]);
+				String startHour = checkTime(subStrings[1]);
+				String endHour = checkTime(subStrings[2]);
+				String order = subStrings[3];
+				String note = subStrings[4];
 			} catch (WrongFormatException | ParseException e) {
 				throw new WrongFormatException("Error in line: " + lineNumber, e);
 			} 
@@ -44,6 +48,12 @@ public class Parser {
 			return new SimpleDateFormat("yyyy-MM-dd").parse(date);
 		
 		throw new WrongFormatException("Wrong date: " + date + ". Rigth format: <yyyy-MM-dd>");
+	}
+
+	private String checkTime(String time) throws WrongFormatException {
+		if (time.matches("([0-9]|1[0-9]|2[0-3]):([0-5][0-9]|[0-9])"))
+			return time;
+		throw new WrongFormatException("Wrong time: " + time + ". Rigth format: <HH:mm>");
 	}
 
 	// restituire il numero di ore del giorno
