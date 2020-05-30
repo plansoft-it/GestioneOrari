@@ -2,10 +2,11 @@ package Parser;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.regex.Pattern;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import Elaborato.Elaborato;
 
@@ -19,29 +20,31 @@ public class Parser {
 	}
 
 	// esegue il parse del file e inizializza elaborato
-	public void parse() {
-		try {
-			File file = new File(filePath);
-			int lineNumber = 0;
-			BufferedReader br = new BufferedReader(new FileReader(file));
-			
-			String rawRow = br.readLine();
-			while (rawRow != null) {
-				lineNumber++;
-				
-				String [] subStrings = rawRow.split(" *\\| *");
-				
-				rawRow = br.readLine();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+	public void parse() throws IOException {
+		int lineNumber = 0;
+		File file = new File(filePath);
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String rawRow = br.readLine();
+		while (rawRow != null) {
+			lineNumber++;
+			String[] subStrings = rawRow.split(" *\\| *");
+			try {
+				Date date = checkDate(subStrings[0]);
+			} catch (WrongFormatException | ParseException e) {
+				throw new WrongFormatException("Error in line: " + lineNumber, e);
+			} 
+			// elaborato.addLine(); 
+			rawRow = br.readLine();
 		}
+		br.close();
 	}
-	
+
+	private Date checkDate(String date) throws WrongFormatException, ParseException {
+		if (date.matches("(20[2-9][0-9]|[2-9][0-9])-([1-9]|0[1-9]|1[0-2])-([0-2][0-9]|3[0-1]|[1-9])")) 
+			return new SimpleDateFormat("yyyy-MM-dd").parse(date);
 		
-	
+		throw new WrongFormatException("Wrong date: " + date + ". Rigth format: <yyyy-MM-dd>");
+	}
 
 	// restituire il numero di ore del giorno
 	public float getDailyWorkHours(String data) {
