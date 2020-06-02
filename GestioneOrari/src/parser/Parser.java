@@ -1,4 +1,4 @@
-package Parser;
+package parser;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import Elaborato.Elaborato;
+import errors.WrongFormatException;
 
 public class Parser {
 
@@ -33,8 +34,7 @@ public class Parser {
 				String endHour = checkTime(subStrings[2]);
 				String order = subStrings[3];
 				String note = (subStrings.length == 5) ? subStrings[4] : "";
-				// elaborato.addLine();
-				System.out.println(date + "#" + startHour + "#" + endHour + "#" + order + "#" + note);
+				// 
 				rawRow = br.readLine();
 			}
 		} catch (WrongFormatException | ParseException e) {
@@ -45,7 +45,6 @@ public class Parser {
 	private Date checkDate(String date) throws WrongFormatException, ParseException {
 		if (date.matches("(20[2-9][0-9]|[2-9][0-9])-([1-9]|0[1-9]|1[0-2])-([0-2][0-9]|3[0-1]|[1-9])"))
 			return new SimpleDateFormat("yyyy-MM-dd").parse(date);
-
 		throw new WrongFormatException("Wrong date: " + date);
 	}
 

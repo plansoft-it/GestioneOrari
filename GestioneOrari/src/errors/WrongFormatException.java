@@ -1,4 +1,4 @@
-package Parser;
+package errors;
 
 import java.io.IOException;
 
