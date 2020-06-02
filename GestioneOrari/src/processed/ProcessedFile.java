@@ -1,7 +1,6 @@
-package Elaborato;
+package processed;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import row.Row;
@@ -13,8 +12,8 @@ public class ProcessedFile {
 		rows = new ArrayList<>();
 	}
 	
-	public void addRowToRows(Date date, String startHour, String endHour, String order, String note) {
-		rows.add(new Row(date, startHour, endHour, order, note));
+	public void addRowToRows(Row row) {
+		rows.add(row);
 	}
 	
 	public List<Row> getRows(){
