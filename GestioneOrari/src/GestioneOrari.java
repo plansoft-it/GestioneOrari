@@ -1,4 +1,6 @@
-import Parser.Parser;
+import java.io.IOException;
+
+import parser.Parser;
 
 public class GestioneOrari {
 
@@ -10,7 +12,11 @@ public class GestioneOrari {
 		
 		Parser parser = new Parser(file);
 		
-		parser.parse();
+		try {
+			parser.parse();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		float numeroOreLavoroGiorno = parser.getDailyWorkHours(data);
 		float numeroOreLavoroCommessa = parser.getOrderWorkHours(commessa);
@@ -19,7 +25,7 @@ public class GestioneOrari {
 		System.out.println("Progetto di gestione orari lavorativi");
 		System.out.println("ore lavoro giorno " + numeroOreLavoroGiorno);
 		System.out.println("ore lavoro commessa " + numeroOreLavoroCommessa);
-		System.out.println("ore lavoro totali " + numeroOreLavoroCommessa);
+		System.out.println("ore lavoro totali " + numeroOreLavoroTotali);
 
 	}
 

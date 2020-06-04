@@ -8,13 +8,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import Elaborato.Elaborato;
 import errors.WrongFormatException;
+import processed.ProcessedFile;
+import row.Row;
 
 public class Parser {
 
 	private String filePath;
-	private Elaborato elaborato;
+	private ProcessedFile processedFile;
 
 	public Parser(String file) {
 		this.filePath = file;
@@ -34,7 +35,7 @@ public class Parser {
 				String endHour = checkTime(subStrings[2]);
 				String order = subStrings[3];
 				String note = (subStrings.length == 5) ? subStrings[4] : "";
-				// 
+				processedFile.addRowToRows(new Row(date, startHour, endHour, order, note));
 				rawRow = br.readLine();
 			}
 		} catch (WrongFormatException | ParseException e) {
