@@ -11,7 +11,11 @@ Es: Il giorno **27/05/20** ho lavorato **dalle 9 alle 18** per la commessa **For
 Considerare che in un file può esserci più di un giorno e che ogni giorno si possa lavorare per più commesse in intervalli diversi.
 
 ## Installare [ Lombok](https://projectlombok.org/)
-#### IDEE Eclipse, OS Linux:
+### Lombok
+
+Utilizzata per ridurre le righe di codice per metodi e costruttori, vedi [sito Lombok](https://projectlombok.org/).
+
+#### Installazione in ambiente Linux
 1. Andare su [Lombok](https://projectlombok.org/download) e cliccare su **Download** per scaricare il *lombok.jar*.
 (Il browser potrebbe segnalare il *.jar* come dannoso, ignoratelo)
 2. Rendere *lombok.jar* eseguibile con il comando `chmod +x path/to/lombok.jar`
@@ -41,5 +45,4 @@ Il problema è probabilmente dovuto ad eventuali spazi nel path, provate a rimuo
 `-javaagent:/dir uno/dirdue/lombok.jar` 
 
 `-javaagent:/diruno/dirdue/lombok.jar`
-
 
