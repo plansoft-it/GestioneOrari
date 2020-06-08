@@ -50,7 +50,7 @@ public class Parser {
 	}
 
 	private String checkTime(String time) throws WrongFormatException {
-		if (time.matches("([0-9]|1[0-9]|2[0-3]):([0-5][0-9]|[0-9])"))
+		if (time.matches("(0[0-9]|1[0-9]|2[0-3]|[0-9]):([0-5][0-9]|[0-9])"))
 			return time;
 		throw new WrongFormatException("Wrong time: " + time);
 	}
