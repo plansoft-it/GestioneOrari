@@ -35,7 +35,7 @@ Utilizzata per ridurre le righe di codice per metodi e costruttori, vedi [sito L
 10. Nella cartella *lib* dovrebbe essere comparso il *lombok.jar*. Selezionarlo e `Rigth Click -> Build Path -> Add to Build Path`
 11. Chiudere e riaprire l'IDEE.
 
-#### IDEE Eclipse, OS Windows:
+#### Installazione in ambiente Windows
 Seguire gli stessi passaggi illustrati sopra, fatta eccezione per il punto 2.
 
 #### Cosa fare se dopo l'installazione Eclipse non si dovesse aprire:
