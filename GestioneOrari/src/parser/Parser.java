@@ -27,8 +27,19 @@ public class Parser {
 	}
 
 	// restituire il numero di ore totali del file
-	public float getTotalWorkHours() {
-		return 0;
+	public float getTotalWorkHours() throws WrongFormatException, ParseException {
+		float oreLavorate = 0;
+		for (int i = 0; i <processedFile.getRows().size(); i++) {
+					
+				SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+		    	Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
+		    	Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
+		    	float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime()); 			    	
+		    	oreLavorate = oreLavorate + difference;
+			
+			
+		}
+		return oreLavorate/60;
 	}
 
 }
