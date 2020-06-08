@@ -10,7 +10,11 @@ Es: Il giorno **27/05/20** ho lavorato **dalle 9 alle 18** per la commessa **For
 
 Considerare che in un file può esserci più di un giorno e che ogni giorno si possa lavorare per più commesse in intervalli diversi.
 
-## Installare [ Lombok](https://projectlombok.org/)
+## Develop 
+
+Dipendenze Java: 
+- [Lombok](#lombok)
+
 ### Lombok
 
 Utilizzata per ridurre le righe di codice per metodi e costruttori, vedi [sito Lombok](https://projectlombok.org/).
@@ -45,4 +49,3 @@ Il problema è probabilmente dovuto ad eventuali spazi nel path, provate a rimuo
 `-javaagent:/dir uno/dirdue/lombok.jar` 
 
 `-javaagent:/diruno/dirdue/lombok.jar`
-
