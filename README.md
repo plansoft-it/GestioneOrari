@@ -22,18 +22,17 @@ Utilizzata per ridurre le righe di codice per metodi e costruttori, vedi [sito L
 #### Installazione in ambiente Linux
 1. Andare su [Lombok](https://projectlombok.org/download) e cliccare su **Download** per scaricare il *lombok.jar*.
 (Il browser potrebbe segnalare il *.jar* come dannoso, ignoratelo)
-2. Rendere *lombok.jar* eseguibile con il comando `chmod +x path/to/lombok.jar`
-3. Eseguire *lombok.jar*. 
+2. Eseguire *lombok.jar*: `java -jar lombok.jar`
 - Se Lombok è in grado di individuare uno o più IDEE, selezionare quelli su cui si vuole installare Lombok e cliccare su **Install/Update**.
 - Se Lombok non è in grado di individuare un IDEE, cliccare su **Specify location...** e selezionare l'eseguibile dell'IDEE su cui si vuole installare Lombok. Cliccare quindi **Install/Update**.
-4. Chiudere l'installer.
-5. Aprire l'IDEE e selezionare il progetto in cui si vuole utilizzare Lombok (consiglio il tab *Package Explorer*).
-6. Creare una nuova cartella  `Rigth Click -> New -> Folder`
-7. Assegnare un nome alla cartella (es: *lib*) e cliccare su **Finish**.
-8. Aggiungere alla cartella *lib* appena creata il *lombok.jar* (Drag and Drop nell'IDEE, navigando nel filesystem, ... )
-9. Nell'IDEE selezionare nuovamente il progetto,  premere **F5** sulla propria tastiera oppure `Rigth Click -> Refresh`
-10. Nella cartella *lib* dovrebbe essere comparso il *lombok.jar*. Selezionarlo e `Rigth Click -> Build Path -> Add to Build Path`
-11. Chiudere e riaprire l'IDEE.
+3. Chiudere l'installer.
+4. Aprire l'IDEE e selezionare il progetto in cui si vuole utilizzare Lombok (consiglio il tab *Package Explorer*).
+5. Creare una nuova cartella  `Rigth Click -> New -> Folder`
+6. Assegnare un nome alla cartella (es: *lib*) e cliccare su **Finish**.
+7. Aggiungere alla cartella *lib* appena creata il *lombok.jar* (Drag and Drop nell'IDEE, navigando nel filesystem, ... )
+8. Nell'IDEE selezionare nuovamente il progetto,  premere **F5** sulla propria tastiera oppure `Rigth Click -> Refresh`
+9. Nella cartella *lib* dovrebbe essere comparso il *lombok.jar*. Selezionarlo e `Rigth Click -> Build Path -> Add to Build Path`
+10. Chiudere e riaprire l'IDEE.
 
 #### Installazione in ambiente Windows
 Seguire gli stessi passaggi illustrati sopra, fatta eccezione per il punto 2.
