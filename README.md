@@ -38,7 +38,8 @@ Utilizzata per ridurre le righe di codice per metodi e costruttori, vedi [sito L
 #### Installazione in ambiente Windows
 Seguire gli stessi passaggi illustrati sopra, fatta eccezione per il punto 2.
 
-#### Cosa fare se dopo l'installazione Eclipse non si dovesse aprire:
+#### Cosa fare se dopo l'installazione Eclipse non si dovesse aprire
+
 Nella cartella in cui è installato Eclipse individuare e aprire il file *eclipse.ini*.
 Rimuovere l'ultima riga, dovrebbe assomigliare a:
 
