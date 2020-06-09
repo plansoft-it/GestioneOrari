@@ -17,8 +17,9 @@ public class Parser {
 	private String filePath;
 	private ProcessedFile processedFile;
 
-	public Parser(String file) {
+	public Parser(String file, ProcessedFile processedFile) {
 		this.filePath = file;
+		this.processedFile = processedFile;
 	}
 
 	// esegue il parse del file e inizializza elaborato

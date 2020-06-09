@@ -1,6 +1,7 @@
 import java.io.IOException;
 
 import parser.Parser;
+import processed.ProcessedFile;
 
 public class GestioneOrari {
 
@@ -10,7 +11,7 @@ public class GestioneOrari {
 		String data = new String();
 		String commessa = new String();
 		
-		Parser parser = new Parser(file);
+		Parser parser = new Parser(file, new ProcessedFile());
 		
 		try {
 			parser.parse();
