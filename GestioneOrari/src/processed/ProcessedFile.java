@@ -16,7 +16,7 @@ public class ProcessedFile {
 	
 	private @Getter List<Row> rows;
 
-	public ProcessedData() {
+	public ProcessedFile() {
 		orderHours = new HashMap<String, Float>();
 		dailyHours = new HashMap<Date, Float>();
 		totalWorkOurs = 0;
