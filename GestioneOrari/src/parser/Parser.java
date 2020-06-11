@@ -5,25 +5,25 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import errors.WrongFormatException;
-import processed.ProcessedFile;
 import row.Row;
 
-public class Parser {
+public class Parser implements IParser{
 
 	private String filePath;
-	private ProcessedFile processedFile;
 
-	public Parser(String file, ProcessedFile processedFile) {
+	public Parser(String file) {
 		this.filePath = file;
-		this.processedFile = processedFile;
 	}
 
 	// esegue il parse del file e inizializza elaborato
-	public void parse() throws IOException {
+	public List<Row> parse() throws IOException {
 		int lineNumber = 0;
+		List<Row> rows = new ArrayList<Row>();
 		File file = new File(filePath);
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String rawRow = br.readLine();
@@ -35,27 +35,13 @@ public class Parser {
 				String endHour = FormatChecker.checkTime(subStrings[2]);
 				String order = subStrings[3];
 				String note = (subStrings.length == 5) ? subStrings[4] : "";
-				processedFile.updateData(new Row(date, startHour, endHour, order, note));
+				Row tmp = new Row(date, startHour, endHour, order, note);
+				if (!rows.contains(tmp)) rows.add(tmp);
 				rawRow = br.readLine();
 			}
 		} catch (WrongFormatException | ParseException e) {
 			throw new WrongFormatException("Error in line: " + lineNumber, e);
 		}
+		return rows;
 	}
-
-	// restituire il numero di ore del giorno
-	public float getDailyWorkHours(Date date) {
-		return processedFile.getDailyHours().get(date);
-	}
-
-	// restituire il numero di ore della commessa
-	public float getOrderWorkHours(String commessa) {
-		return processedFile.getOrderHours().get(commessa);
-	}
-
-	// restituire il numero di ore totali del file
-	public float getTotalWorkHours() {
-		return processedFile.getTotalWorkOurs();
-	}
-
 }
