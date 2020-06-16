@@ -33,6 +33,7 @@ public class Parser implements IParser{
 				Date date = FormatChecker.checkDate(subStrings[0]);
 				String startHour = FormatChecker.checkTime(subStrings[1]);
 				String endHour = FormatChecker.checkTime(subStrings[2]);
+				FormatChecker.checkOrderTime(startHour, endHour);
 				String order = subStrings[3];
 				String note = (subStrings.length == 5) ? subStrings[4] : "";
 				Row tmp = new Row(date, startHour, endHour, order, note);
