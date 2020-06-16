@@ -1,6 +1,7 @@
 package processed;
 
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -46,7 +47,7 @@ public class ProcessedFile {
 		totalHours += hours;
 	}
 
-	private float getHoursAmmount(String startHour, String endHour) {
+	private float getHoursAmmount(LocalTime startHour, LocalTime endHour) {
 		// TODO Add: Calculate difference between startHours and endHours
 		return 1;
 	}

@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,8 +33,8 @@ public class Parser implements IParser{
 				lineNumber++;
 				String[] subStrings = rawRow.split(" *\\| *");
 				Date date = FormatChecker.checkDate(subStrings[0]);
-				String startHour = FormatChecker.checkTime(subStrings[1]);
-				String endHour = FormatChecker.checkTime(subStrings[2]);
+				LocalTime startHour = FormatChecker.checkTime(subStrings[1]);
+				LocalTime endHour = FormatChecker.checkTime(subStrings[2]);
 				FormatChecker.checkOrderTime(startHour, endHour);
 				String order = subStrings[3];
 				String note = (subStrings.length == 5) ? subStrings[4] : "";
@@ -40,7 +42,7 @@ public class Parser implements IParser{
 				if (!rows.contains(tmp)) rows.add(tmp);
 				rawRow = br.readLine();
 			}
-		} catch (WrongFormatException | ParseException e) {
+		} catch (ParseException | DateTimeParseException e) {
 			throw new WrongFormatException("Error in line: " + lineNumber, e);
 		}
 		return rows;

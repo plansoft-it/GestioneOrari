@@ -1,5 +1,6 @@
 package row;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -13,8 +14,8 @@ import lombok.Data;
 public @Data class Row {
 	
 	private Date date;
-	private String startHour;
-	private String endHour;
+	private LocalTime startHour;
+	private LocalTime endHour;
 	private String order;
 	private String note;
 }

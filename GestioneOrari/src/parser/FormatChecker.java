@@ -3,29 +3,25 @@ package parser;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 
 import errors.WrongFormatException;
 
 public class FormatChecker {
 
-	public static Date checkDate(String date) throws WrongFormatException, ParseException {
-		if (date.matches("(20[2-9][0-9]|[2-9][0-9])-([1-9]|0[1-9]|1[0-2])-([0-2][0-9]|3[0-1]|[1-9])"))
+	public static Date checkDate(String date) throws ParseException {
+		if (date.matches("(20[2-9][0-9])-([1-9]|0[1-9]|1[0-2])-([0-2][0-9]|3[0-1]|[1-9])"))
 			return new SimpleDateFormat("yyyy-MM-dd").parse(date);
-		throw new WrongFormatException("Wrong date: " + date);
+		throw new ParseException("Wrong date: " + date, 0);
 	}
 
-	public static String checkTime(String time) throws WrongFormatException {
-		if (time.matches("(0[0-9]|1[0-9]|2[0-3]|[0-9]):([0-5][0-9]|[0-9])"))
-			return time;
-		throw new WrongFormatException("Wrong time: " + time);
+	public static LocalTime checkTime(String time) throws DateTimeParseException{
+		return LocalTime.parse(time);
 	}
 
-	public static void checkOrderTime(String start, String end) throws WrongFormatException {
-		LocalTime startTime = LocalTime.parse(start);
-		LocalTime endTime = LocalTime.parse(end);
-		if (!startTime.isBefore(endTime))
-			throw new WrongFormatException(
-					"Start time must be earlier than end time. start: " + startTime + " end: " + endTime);
+	public static void checkOrderTime(LocalTime start, LocalTime end) throws WrongFormatException {
+		if (!start.isBefore(end))
+			throw new WrongFormatException("Start time must be earlier than end time. start: " + start + " end: " + end);
 	}
 }
