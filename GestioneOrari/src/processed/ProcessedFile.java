@@ -14,14 +14,14 @@ public class ProcessedFile {
 
 	private @Getter HashMap<String, Float> orderHours;
 	private @Getter HashMap<Date, Float> dailyHours;
-	private @Getter float totalWorkOurs;
+	private @Getter float totalHours;
 	private @Getter List<Row> rows;
 
 	public ProcessedFile(Parser parser) {
 		this.parser = parser;
 		orderHours = new HashMap<String, Float>();
 		dailyHours = new HashMap<Date, Float>();
-		totalWorkOurs = 0;
+		totalHours = 0;
 	}
 
 	public void updateData() throws IOException {
@@ -43,27 +43,26 @@ public class ProcessedFile {
 	}
 
 	private void updateTotalHours(float hours) {
-		totalWorkOurs += hours;
+		totalHours += hours;
 	}
 
 	private float getHoursAmmount(String startHour, String endHour) {
-		// TODO
-		// Calcolare la differenza in ore e minuti tra startHours e end Hours
+		// TODO Add: Calculate difference between startHours and endHours
 		return 1;
 	}
 	
 	// restituire il numero di ore del giorno
 	public float getDailyWorkHours(Date date) {
-		return dailyHours.get(date);
+		return dailyHours.getOrDefault(date, 0f);
 	}
 
 	// restituire il numero di ore della commessa
-	public float getOrderWorkHours(String commessa) {
-		return orderHours.get(commessa);
+	public float getOrderWorkHours(String order) {
+		return orderHours.getOrDefault(order, 0f);
 	}
 
 	// restituire il numero di ore totali del file
 	public float getTotalWorkHours() {
-		return totalWorkOurs;
+		return totalHours;
 	}
 }
