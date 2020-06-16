@@ -8,24 +8,37 @@ import processed.ProcessedFile;
 
 public class GestioneOrari {
 
-	public static void main(String[] args) throws ParseException, IOException {
+	public static void main(String[] args) {
 		
-		String file = "test.txt";
-		Date data = new SimpleDateFormat("yyyy-MM-dd").parse("2020-5-1");
-		String commessa = "conad";
+		String commessa = new String();
+		Date data = new Date();
+		try {
+			data = new SimpleDateFormat("yyyy-MM-dd").parse("2020-5-1");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
-		Parser parser = new Parser(file);
-		ProcessedFile pf = new ProcessedFile(parser);
-		pf.updateData();
+		try {
+			String filePath = "path/to/test.txt";
+			Parser parser = new Parser(filePath);
+			ProcessedFile processedFile = new ProcessedFile(parser);
+			processedFile.updateData();
+			
+			float numeroOreLavoroGiorno = processedFile.getDailyWorkHours(data);
+			float numeroOreLavoroCommessa = processedFile.getOrderWorkHours(commessa);
+			float numeroOreLavoroTotali = processedFile.getTotalWorkHours();
+			
+			System.out.println("Progetto di gestione orari lavorativi");
+			System.out.println("ore lavoro giorno " + numeroOreLavoroGiorno);
+			System.out.println("ore lavoro commessa " + numeroOreLavoroCommessa);
+			System.out.println("ore lavoro totali " + numeroOreLavoroTotali);
+		} catch (IOException e) {
+			// TODO Add: Ask for a new file path. While(true) ... break
+			e.printStackTrace();
+		}
 		
-		float numeroOreLavoroGiorno = pf.getDailyWorkHours(data);
-		float numeroOreLavoroCommessa = pf.getOrderWorkHours(commessa);
-		float numeroOreLavoroTotali = pf.getTotalWorkHours();
 		
-		System.out.println("Progetto di gestione orari lavorativi");
-		System.out.println("ore lavoro giorno " + numeroOreLavoroGiorno);
-		System.out.println("ore lavoro commessa " + numeroOreLavoroCommessa);
-		System.out.println("ore lavoro totali " + numeroOreLavoroTotali);
+		
 
 	}
 
