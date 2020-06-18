@@ -38,12 +38,11 @@ public class Parser {
 			float oreLavorate = 0;
 			for (int i = 0; i <processedFile.getRows().size(); i++) {
 				if (processedFile.getRows().get(i).getOrder().equals(commessa)) {
-					
-					SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-			    	Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
-			    	Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
-			    	float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime()); 			    	
-			    	oreLavorate = oreLavorate + difference;
+                                    SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+                                    Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
+                                    Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
+                                    float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime()); 			    	
+                                    oreLavorate = oreLavorate + difference;
 				}
 				
 			}
