@@ -1,4 +1,4 @@
-package Parser;
+package parser;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,16 +9,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import Elaborato.Elaborato;
+import processed.ProcessedFile;
 import errors.WrongFormatException;
 
 public class Parser {
 
-	private String file;
-	private Elaborato elaborato;
+	private final String filePath;
+	private final ProcessedFile processedFile;
 
-	public Parser(String file) {
-		this.file = file;
+	public Parser(String filePath) {
+		this.filePath = filePath;
+		processedFile = new ProcessedFile();
 	}
 
 	// esegue il parse del file e inizializza elaborato
