@@ -7,18 +7,18 @@ import java.util.HashMap;
 import java.util.List;
 
 import lombok.Getter;
-import parser.Parser;
+import parser.IParser;
 import row.Row;
 
 public class ProcessedFile {
-	private Parser parser;
+	private IParser parser;
 
 	private @Getter HashMap<String, Float> orderHours;
 	private @Getter HashMap<Date, Float> dailyHours;
 	private @Getter float totalHours;
 	private @Getter List<Row> rows;
 
-	public ProcessedFile(Parser parser) {
+	public ProcessedFile(IParser parser) {
 		this.parser = parser;
 		orderHours = new HashMap<String, Float>();
 		dailyHours = new HashMap<Date, Float>();
@@ -48,7 +48,7 @@ public class ProcessedFile {
 	}
 
 	private float getHoursAmmount(LocalTime startHour, LocalTime endHour) {
-		// TODO Add: Calculate difference between startHours and endHours
+		// TODO Add: Calculate difference between startHours and endHours. Write tests.
 		return 1;
 	}
 	
