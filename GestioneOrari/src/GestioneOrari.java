@@ -1,4 +1,4 @@
-import Parser.Parser;
+import parser.Parser;
 
 public class GestioneOrari {
 
