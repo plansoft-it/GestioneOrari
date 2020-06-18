@@ -1,11 +1,11 @@
-package Parser;
+package parser;
 
-import Elaborato.ProcessedFile;
+import processed.ProcessedFile;
 
 public class Parser {
 
-	private String filePath;
-	private ProcessedFile processedFile;
+	private final String filePath;
+	private final ProcessedFile processedFile;
 
 	public Parser(String filePath) {
 		this.filePath = filePath;
