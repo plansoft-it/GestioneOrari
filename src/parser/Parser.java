@@ -16,7 +16,7 @@ import row.Row;
 public class Parser {
 
 	private final String filePath;
-	private final ProcessedFile processedFile;
+	private ProcessedFile processedFile;
 
 	public Parser(String filePath, ProcessedFile processedFile) {
 		this.filePath = filePath;
@@ -31,12 +31,12 @@ public class Parser {
 			String rawRow = br.readLine();
 			while (rawRow != null) {
 				lineNumber++;
-				final String[] subStrings = rawRow.split(" *\\| *");
-				final Date date = checkDate(subStrings[0]);
-				final String startHour = checkTime(subStrings[1]);
-				final String endHour = checkTime(subStrings[2]);
-				final String order = subStrings[3];
-				final String note = (subStrings.length == 5) ? subStrings[4] : "";
+				String[] subStrings = rawRow.split(" *\\| *");
+				Date date = checkDate(subStrings[0]);
+				String startHour = checkTime(subStrings[1]);
+				String endHour = checkTime(subStrings[2]);
+				String order = subStrings[3];
+				String note = (subStrings.length == 5) ? subStrings[4] : "";
 				processedFile.addRowToRows(new Row(date, startHour, endHour, order, note));
 				rawRow = br.readLine();
 			}
@@ -46,16 +46,14 @@ public class Parser {
 	}
 
 	private Date checkDate(String date) throws WrongFormatException, ParseException {
-		if (date.matches("(20[2-9][0-9]|[2-9][0-9])-([1-9]|0[1-9]|1[0-2])-([0-2][0-9]|3[0-1]|[1-9])")) {
+		if (date.matches("(20[2-9][0-9]|[2-9][0-9])-([1-9]|0[1-9]|1[0-2])-([0-2][0-9]|3[0-1]|[1-9])"))
 			return new SimpleDateFormat("yyyy-MM-dd").parse(date);
-		}
 		throw new WrongFormatException("Wrong date: " + date);
 	}
 
 	private String checkTime(String time) throws WrongFormatException {
-		if (time.matches("(0[0-9]|1[0-9]|2[0-3]|[0-9]):([0-5][0-9]|[0-9])")) {
+		if (time.matches("(0[0-9]|1[0-9]|2[0-3]|[0-9]):([0-5][0-9]|[0-9])")) 
 			return time;
-		}
 		throw new WrongFormatException("Wrong time: " + time);
 	}
 
@@ -85,10 +83,10 @@ public class Parser {
 		float oreLavorate = 0;
 		for (int i = 0; i < processedFile.getRows().size(); i++) {
 			if (processedFile.getRows().get(i).getOrder().equals(commessa)) {
-				final SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-				final Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
-				final Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
-				final float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime());
+				SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+				Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
+				Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
+				float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime());
 				oreLavorate = oreLavorate + difference;
 			}
 
@@ -101,10 +99,10 @@ public class Parser {
 		float oreLavorate = 0;
 		for (int i = 0; i < processedFile.getRows().size(); i++) {
 
-			final SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-			final Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
-			final Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
-			final float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime());
+			SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+			Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
+			Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
+			float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime());
 			oreLavorate = oreLavorate + difference;
 
 		}

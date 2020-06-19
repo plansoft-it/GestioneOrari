@@ -9,15 +9,15 @@ public class GestioneOrari {
 
 	public static void main(String[] args) {
 		
-		final String file = new String();
-		final String data = new String();
-		final String commessa = new String();
+		String file = new String();
+		String data = new String();
+		String commessa = new String();
 		
-		final Parser parser = new Parser(file, new ProcessedFile());
+		Parser parser = new Parser(file, new ProcessedFile());
 		
 		try {
 			parser.parse();
-		} catch (final IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
