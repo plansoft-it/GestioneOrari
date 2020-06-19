@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import static java.time.temporal.ChronoUnit.MINUTES;
 
 import lombok.Getter;
 import parser.IParser;
@@ -13,9 +14,9 @@ import row.Row;
 public class ProcessedFile {
 	private IParser parser;
 
-	private @Getter HashMap<String, Float> orderHours;
-	private @Getter HashMap<Date, Float> dailyHours;
-	private @Getter float totalHours;
+	private HashMap<String, Float> orderHours;
+	private HashMap<Date, Float> dailyHours;
+	private float totalHours;
 	private @Getter List<Row> rows;
 
 	public ProcessedFile(IParser parser) {
@@ -48,10 +49,19 @@ public class ProcessedFile {
 	}
 
 	private float getHoursAmmount(LocalTime startHour, LocalTime endHour) {
-		// TODO Add: Calculate difference between startHours and endHours. Write tests.
-		return 1;
+		return MINUTES.between(startHour, endHour);
 	}
-	
+
+	// TODO Bad Practice: package-private getter for testing purpose
+	HashMap<String, Float> getOrderHours() {
+		return orderHours;
+	}
+
+	// TODO Bad Practice: package-private getter for testing purpose
+	HashMap<Date, Float> getDailyHours() {
+		return dailyHours;
+	}
+
 	// restituire il numero di ore del giorno
 	public float getDailyWorkHours(Date date) {
 		return dailyHours.getOrDefault(date, 0f);
@@ -66,4 +76,5 @@ public class ProcessedFile {
 	public float getTotalWorkHours() {
 		return totalHours;
 	}
+
 }
