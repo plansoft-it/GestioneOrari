@@ -15,7 +15,7 @@ import row.Row;
 
 public class Parser {
 
-	private String filePath;
+	private final String filePath;
 	private ProcessedFile processedFile;
 
 	public Parser(String filePath, ProcessedFile processedFile) {
@@ -26,7 +26,7 @@ public class Parser {
 	// esegue il parse del file e inizializza elaborato
 	public void parse() throws IOException {
 		int lineNumber = 0;
-		File file = new File(filePath);
+		final File file = new File(filePath);
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String rawRow = br.readLine();
 			while (rawRow != null) {
@@ -52,15 +52,31 @@ public class Parser {
 	}
 
 	private String checkTime(String time) throws WrongFormatException {
-		if (time.matches("(0[0-9]|1[0-9]|2[0-3]|[0-9]):([0-5][0-9]|[0-9])"))
+		if (time.matches("(0[0-9]|1[0-9]|2[0-3]|[0-9]):([0-5][0-9]|[0-9])")) 
 			return time;
 		throw new WrongFormatException("Wrong time: " + time);
 	}
 
 	// restituire il numero di ore del giorno
-	public float getDailyWorkHours(String data) {
-		return 0;
-	}
+	public float getDailyWorkHours(String data) throws WrongFormatException, ParseException {  
+		float oreLavorate = 0;
+		try {
+			final Date date = new SimpleDateFormat("yyyy-MM-dd").parse(data);
+
+			for (int i = 0; i < processedFile.getRows().size(); i++) {
+				if (processedFile.getRows().get(i).getDate().equals(date)) {
+					final SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+					final Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
+					final Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
+					final float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime());
+					oreLavorate = oreLavorate + difference;
+				}
+			}
+		} catch (final ParseException e) {
+			throw new WrongFormatException("Error: ",e);
+		}
+		return oreLavorate / 60;
+	}/* getDailyWorkHours */
 
 	// restituire il numero di ore della commessa
 	public float getOrderWorkHours(String commessa) throws WrongFormatException, ParseException {

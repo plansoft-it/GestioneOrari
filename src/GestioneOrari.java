@@ -1,5 +1,7 @@
 import java.io.IOException;
+import java.text.ParseException;
 
+import errors.WrongFormatException;
 import parser.Parser;
 import processed.ProcessedFile;
 
@@ -19,9 +21,18 @@ public class GestioneOrari {
 			e.printStackTrace();
 		}
 		
-		float numeroOreLavoroGiorno = parser.getDailyWorkHours(data);
-		float numeroOreLavoroCommessa = parser.getOrderWorkHours(commessa);
-		float numeroOreLavoroTotali = parser.getTotalWorkHours();
+		float numeroOreLavoroGiorno = 0;
+		float numeroOreLavoroCommessa = 0;
+		float numeroOreLavoroTotali = 0;
+		
+		try {
+			numeroOreLavoroGiorno = parser.getDailyWorkHours(data);
+			numeroOreLavoroCommessa = parser.getOrderWorkHours(commessa);
+			numeroOreLavoroTotali = parser.getTotalWorkHours();
+		} 
+		catch (WrongFormatException | ParseException e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println("Progetto di gestione orari lavorativi");
 		System.out.println("ore lavoro giorno " + numeroOreLavoroGiorno);
