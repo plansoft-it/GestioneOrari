@@ -33,8 +33,8 @@ public class Parser implements IParser{
 				lineNumber++;
 				String[] subStrings = rawRow.split(" *\\| *");
 				Date date = FormatChecker.checkDate(subStrings[0]);
-				LocalTime startHour = FormatChecker.checkTime(subStrings[1]);
-				LocalTime endHour = FormatChecker.checkTime(subStrings[2]);
+				LocalTime startHour = FormatChecker.checkTimeLocalTimeFormat(subStrings[1]);
+				LocalTime endHour = FormatChecker.checkTimeLocalTimeFormat(subStrings[2]);
 				FormatChecker.checkOrderTime(startHour, endHour);
 				String order = subStrings[3];
 				String note = (subStrings.length == 5) ? subStrings[4] : "";

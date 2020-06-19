@@ -51,8 +51,7 @@ public class FormatCheckerTest {
 	public void testCheckDateStandardFormatOk() throws Exception {
 		String date = "2030-01-01";
 		assertThat(FormatChecker.checkDate(date))
-			.isEqualTo(new SimpleDateFormat(DATE_FORMAT)
-				.parse("2030-01-01"));
+			.isEqualTo(new SimpleDateFormat(DATE_FORMAT).parse("2030-01-01"));
 	}
 
 	@Test
@@ -67,16 +66,14 @@ public class FormatCheckerTest {
 	public void testCheckDateMonthModOk() throws Exception {
 		String date = "2030-1-01";
 		assertThat(FormatChecker.checkDate(date))
-			.isEqualTo(new SimpleDateFormat(DATE_FORMAT)
-				.parse("2030-01-01"));
+			.isEqualTo(new SimpleDateFormat(DATE_FORMAT).parse("2030-01-01"));
 	}
 
 	@Test
 	public void testCheckDateDayModOk() throws Exception {
 		String date = "2030-01-1";
 		assertThat(FormatChecker.checkDate(date))
-			.isEqualTo(new SimpleDateFormat(DATE_FORMAT)
-				.parse("2030-01-01"));
+			.isEqualTo(new SimpleDateFormat(DATE_FORMAT).parse("2030-01-01"));
 	}
 
 	@Test

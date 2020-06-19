@@ -16,8 +16,15 @@ public class FormatChecker {
 		throw new ParseException("Wrong date: " + date, 0);
 	}
 
-	public static LocalTime checkTime(String time) throws DateTimeParseException{
+	public static LocalTime checkTimeLocalTimeFormat(String time) throws DateTimeParseException{
 		return LocalTime.parse(time);
+	}
+	
+	public static LocalTime checkTimeCustomFormat(String time) throws WrongFormatException {
+		// TODO Bug: Edit String time in a format acceptable for LocalTime (HH:mm). Write tests!
+		if (time.matches("(0[0-9]|1[0-9]|2[0-3]|[0-9]):([0-5][0-9]|[0-9])"))
+			return LocalTime.parse(time);
+		throw new WrongFormatException("Wrong time: " + time);
 	}
 
 	public static void checkOrderTime(LocalTime start, LocalTime end) throws WrongFormatException {
