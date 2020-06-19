@@ -1,5 +1,7 @@
 import java.io.IOException;
+import java.text.ParseException;
 
+import errors.WrongFormatException;
 import parser.Parser;
 import processed.ProcessedFile;
 
@@ -7,21 +9,30 @@ public class GestioneOrari {
 
 	public static void main(String[] args) {
 		
-		String file = new String();
-		String data = new String();
-		String commessa = new String();
+		final String file = new String();
+		final String data = new String();
+		final String commessa = new String();
 		
-		Parser parser = new Parser(file, new ProcessedFile());
+		final Parser parser = new Parser(file, new ProcessedFile());
 		
 		try {
 			parser.parse();
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 		
-		float numeroOreLavoroGiorno = parser.getDailyWorkHours(data);
-		float numeroOreLavoroCommessa = parser.getOrderWorkHours(commessa);
-		float numeroOreLavoroTotali = parser.getTotalWorkHours();
+		float numeroOreLavoroGiorno = 0;
+		float numeroOreLavoroCommessa = 0;
+		float numeroOreLavoroTotali = 0;
+		
+		try {
+			numeroOreLavoroGiorno = parser.getDailyWorkHours(data);
+			numeroOreLavoroCommessa = parser.getOrderWorkHours(commessa);
+			numeroOreLavoroTotali = parser.getTotalWorkHours();
+		} 
+		catch (WrongFormatException | ParseException e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println("Progetto di gestione orari lavorativi");
 		System.out.println("ore lavoro giorno " + numeroOreLavoroGiorno);
