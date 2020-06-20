@@ -1,0 +1,6 @@
+<2019-2-25> | <8:10> | <13:53> | Conad |  Lorem ipsum A
+<2019-4-3> | <12:14> | <19:22> | Conad| Lorem ipsum B
+<2019-9-12> | <18:12> | <23:30> | Esselunga | Lorem ipsum C
+<2020-1-5> | <14:22> | <18:23> | Coop | Lorem ipsum D
+<2020-2-6> | <17:04> | <19:52> | Lilly | Lorem ipsum E
+<2020-4-30> | <18:12> | <21:43> | Lilly | Lorem ipsum F
