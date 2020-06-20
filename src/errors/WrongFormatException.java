@@ -3,7 +3,10 @@ package errors;
 import java.io.IOException;
 
 public class WrongFormatException extends IOException{
-	    public WrongFormatException(String errorMessage) {
+	    /** serial version UID */
+	private static final long serialVersionUID = 1L;
+
+		public WrongFormatException(String errorMessage) {
 	        super(errorMessage);
 	    }
 	    
