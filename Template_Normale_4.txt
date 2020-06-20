@@ -1,4 +1,3 @@
-<Mariello Prapapappo>
 <2018-1-15> | <8:10> | <8:53> | Conad|  Lorem ipsum A
 <2018-1-17> | <7:43> | <9:24> | Lilly |Lorem ipsum B
 <2018-1-22> | <18:52> | <19:30> | Esselunga | Lorem ipsum C
