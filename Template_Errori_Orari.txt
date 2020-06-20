@@ -1,4 +1,3 @@
-<Marco Rossi>
 <2020-6-01> | <69:22> | <18:24> | Coop | Lorem ipsum G
 <2020-6-07> | <12:14> | <19:420> | Esselunga | Lorem ipsum H
 <2020-7-23> | <lol:12> | <15:46> | Lilly | Lorem ipsum I
