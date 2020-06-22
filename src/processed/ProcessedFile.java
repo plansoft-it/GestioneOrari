@@ -62,6 +62,11 @@ public class ProcessedFile {
 		return dailyHours;
 	}
 
+	// TODO Bad Practice: package-private getter for testing purpose
+	float getTotalHours() {
+		return totalHours;
+	}
+
 	// restituire il numero di ore del giorno
 	public float getDailyWorkHours(Date date) {
 		return dailyHours.getOrDefault(date, 0f);

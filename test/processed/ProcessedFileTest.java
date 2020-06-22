@@ -144,4 +144,19 @@ public class ProcessedFileTest {
 		assertThat(dailyHours.get(date1)).isEqualTo(60);
 		assertThat(dailyHours.get(date2)).isEqualTo(120);
 	}
+	
+	@Test
+	public void testUpdateDataTotalHours() throws IOException {
+		List<Row> rows = new ArrayList<>();
+		Date date = new Date();
+		String order = "conad";
+		rows.add(new Row(date, LocalTime.parse("10:00"), LocalTime.parse("11:00"), order, ""));
+		rows.add(new Row(date, LocalTime.parse("11:00"), LocalTime.parse("13:00"), order, ""));
+
+		when(parser.parse()).thenReturn(rows);
+		processedFile.updateData();
+
+		float totalHours = processedFile.getTotalHours();
+		assertThat(totalHours).isEqualTo(180);
+	}
 }

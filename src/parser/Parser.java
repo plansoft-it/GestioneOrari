@@ -14,7 +14,7 @@ import java.util.List;
 import errors.WrongFormatException;
 import row.Row;
 
-public class Parser implements IParser{
+public class Parser implements IParser {
 
 	private String filePath;
 
@@ -39,7 +39,8 @@ public class Parser implements IParser{
 				String order = subStrings[3];
 				String note = (subStrings.length == 5) ? subStrings[4] : "";
 				Row tmp = new Row(date, startHour, endHour, order, note);
-				if (!rows.contains(tmp)) rows.add(tmp);
+				if (!rows.contains(tmp))
+					rows.add(tmp);
 				rawRow = br.readLine();
 			}
 		} catch (ParseException | DateTimeParseException e) {

@@ -9,7 +9,7 @@ import processed.ProcessedFile;
 public class GestioneOrari {
 
 	public static void main(String[] args) {
-		
+
 		String commessa = new String();
 		Date data = new Date();
 		try {
@@ -33,7 +33,6 @@ public class GestioneOrari {
 			System.out.println("ore lavoro commessa " + numeroOreLavoroCommessa);
 			System.out.println("ore lavoro totali " + numeroOreLavoroTotali);
 		} catch (IOException e) {
-			// TODO Add: Ask for a new file path. While(true) ... break
 			e.printStackTrace();
 		}
 
