@@ -1,6 +1,6 @@
-<2019-1-15> | <5:10> | <6:53> | Esselunga |  Lorem ipsum A
-<2019-1-30> | <17:44> | <19:24> | Esselunga| Lorem ipsum B
-<2019-3-12> | <18:52> | <23:30> | Esselunga | Lorem ipsum C
-<2019-4-3> | <4:22> | <18:23> | Lilly| Lorem ipsum D
-<2019-5-2> | <7:04> | <9:52> | Conad | Lorem ipsum E
-<2019-5-25> | <11:42> | <21:43> | Lilly | Lorem ipsum F
+2019-1-15| 5:10 | 6:53 | Esselunga |  Lorem ipsum A
+2019-1-30 | 17:44 | 19:24 | Esselunga| Lorem ipsum B
+2019-3-12 | 18:52 | 23:30 | Esselunga | Lorem ipsum C
+2019-4-3 | 4:22 | 18:23 | Lilly| Lorem ipsum D
+2019-5-2| 7:04 | 9:52 | Conad | Lorem ipsum E
+2019-5-25| 11:42 | 21:43 | Lilly | Lorem ipsum F
