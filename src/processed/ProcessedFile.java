@@ -81,5 +81,4 @@ public class ProcessedFile {
 	public float getTotalWorkHours() {
 		return totalHours;
 	}
-
 }

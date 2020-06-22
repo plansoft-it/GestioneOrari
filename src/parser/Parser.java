@@ -27,6 +27,7 @@ public class Parser implements IParser {
 		int lineNumber = 0;
 		List<Row> rows = new ArrayList<Row>();
 		File file = new File(filePath);
+
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String rawRow = br.readLine();
 			while (rawRow != null) {
