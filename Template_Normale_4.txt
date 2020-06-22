@@ -1,6 +1,6 @@
-2018-1-15 | 8:10 | 8:53 | Conad|  Lorem ipsum A
-2018-1-17 | 7:43 | 9:24 | Lilly |Lorem ipsum B
-2018-1-22 | 18:52 | 19:30 | Esselunga | Lorem ipsum C
-2018-3-3| 4:12 | 8:23 |Coop | Lorem ipsum D
-2018-5-2 | 7:04 | 7:52 | Esselunga| Lorem ipsum E
-2020-9-25 | 1:42 | 21:43 | Esselunga| Lorem ipsum F
+2020-1-15 | 8:10 | 8:53 | Conad|  Lorem ipsum A
+2020-1-17 | 7:43 | 9:24 | Lilly |Lorem ipsum B
+2020-1-22 | 18:52 | 19:30 | Esselunga | Lorem ipsum C
+2020-3-3| 4:12 | 8:23 |Coop | Lorem ipsum D
+2020-5-2 | 7:04 | 7:52 | Esselunga| Lorem ipsum E
+2021-9-25 | 1:42 | 21:43 | Esselunga| Lorem ipsum F
