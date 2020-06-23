@@ -57,9 +57,10 @@ public class Parser {
 		throw new WrongFormatException("Wrong time: " + time);
 	}
 
-	// restituire il numero di ore del giorno
+	// 1 - restituire il numero di ore del giorno
 	public float getDailyWorkHours(String data) throws WrongFormatException, ParseException {  
 		float oreLavorate = 0;
+		float minLavorati = 0;
 		try {
 			final Date date = new SimpleDateFormat("yyyy-MM-dd").parse(data);
 
@@ -69,13 +70,18 @@ public class Parser {
 					final Date date1 = format.parse(processedFile.getRows().get(i).getStartHour());
 					final Date date2 = format.parse(processedFile.getRows().get(i).getEndHour());
 					final float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime());
-					oreLavorate = oreLavorate + difference;
+					minLavorati = minLavorati + difference;
 				}
 			}
 		} catch (final ParseException e) {
 			throw new WrongFormatException("Error: ",e);
 		}
-		return oreLavorate / 60;
+		
+		oreLavorate = (int) minLavorati / 60;
+		minLavorati = minLavorati % 60;
+		oreLavorate = oreLavorate + minLavorati / 100;
+
+		return oreLavorate;
 	}/* getDailyWorkHours */
 
 	// restituire il numero di ore della commessa
@@ -89,7 +95,7 @@ public class Parser {
 				float difference = TimeUnit.MILLISECONDS.toMinutes(date2.getTime() - date1.getTime());
 				oreLavorate = oreLavorate + difference;
 			}
-
+			
 		}
 		return oreLavorate / 60;
 	}
