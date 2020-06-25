@@ -1,0 +1,4 @@
+2020-6-01 | 14:22 | 18:24 | Coop | Lorem ipsum G
+2020-6-07 | 12:14 | 19:52 | Esselunga | Lorem ipsum H
+08:12 | 15:46 | Lilly | Lorem ipsum I
+2020-9-17 | 16:42 | 18:29 | Coop | Lorem ipsum L
