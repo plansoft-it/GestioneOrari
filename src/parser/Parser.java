@@ -44,7 +44,7 @@ public class Parser implements IParser {
 					rows.add(tmp);
 				rawRow = br.readLine();
 			}
-		} catch (ParseException | DateTimeParseException e) {
+		} catch (ParseException | DateTimeParseException | WrongFormatException e) {
 			throw new WrongFormatException("Error in line: " + lineNumber, e);
 		}
 		return rows;
