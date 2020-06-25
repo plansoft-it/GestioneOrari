@@ -39,9 +39,9 @@ public class Parser implements IParser {
 				FormatChecker.checkOrderTime(startHour, endHour);
 				String order = subStrings[3];
 				String note = (subStrings.length == 5) ? subStrings[4] : "";
-				Row tmp = new Row(date, startHour, endHour, order, note);
-				if (!rows.contains(tmp))
-					rows.add(tmp);
+				Row lineToInsert = new Row(date, startHour, endHour, order, note);
+				if (!rows.contains(lineToInsert))
+					rows.add(lineToInsert);
 				rawRow = br.readLine();
 			}
 		} catch (ParseException | DateTimeParseException | WrongFormatException e) {
