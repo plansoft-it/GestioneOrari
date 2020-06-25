@@ -12,7 +12,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 public @Data class Row {
-	
+
 	private Date date;
 	private LocalTime startHour;
 	private LocalTime endHour;
