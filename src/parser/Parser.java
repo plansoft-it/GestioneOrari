@@ -79,9 +79,8 @@ public class Parser {
 		
 		oreLavorate = (int) minLavorati / 60;
 		minLavorati = minLavorati % 60;
-		oreLavorate = oreLavorate + minLavorati / 100;
-
-		return oreLavorate;
+		
+		return oreLavorate + minLavorati / 100;
 	}/* getDailyWorkHours */
 
 	// restituire il numero di ore della commessa
