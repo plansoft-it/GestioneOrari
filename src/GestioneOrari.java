@@ -1,44 +1,38 @@
 import java.io.IOException;
 import java.text.ParseException;
-
-import errors.WrongFormatException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import parser.Parser;
 import processed.ProcessedFile;
 
 public class GestioneOrari {
 
 	public static void main(String[] args) {
-		
-		String file = new String();
-		String data = new String();
+
 		String commessa = new String();
-		
-		Parser parser = new Parser(file, new ProcessedFile());
-		
+		Date data = new Date();
 		try {
-			parser.parse();
+			data = new SimpleDateFormat("yyyy-MM-dd").parse("2020-5-1");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			String filePath = "/home/ant/Desktop/test.txt";
+			Parser parser = new Parser(filePath);
+			ProcessedFile processedFile = new ProcessedFile(parser);
+			processedFile.updateData();
+
+			float numeroOreLavoroGiorno = processedFile.getDailyWorkHours(data);
+			float numeroOreLavoroCommessa = processedFile.getOrderWorkHours(commessa);
+			float numeroOreLavoroTotali = processedFile.getTotalWorkHours();
+
+			System.out.println("Progetto di gestione orari lavorativi");
+			System.out.println("ore lavoro giorno " + numeroOreLavoroGiorno);
+			System.out.println("ore lavoro commessa " + numeroOreLavoroCommessa);
+			System.out.println("ore lavoro totali " + numeroOreLavoroTotali);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		float numeroOreLavoroGiorno = 0;
-		float numeroOreLavoroCommessa = 0;
-		float numeroOreLavoroTotali = 0;
-		
-		try {
-			numeroOreLavoroGiorno = parser.getDailyWorkHours(data);
-			numeroOreLavoroCommessa = parser.getOrderWorkHours(commessa);
-			numeroOreLavoroTotali = parser.getTotalWorkHours();
-		} 
-		catch (WrongFormatException | ParseException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("Progetto di gestione orari lavorativi");
-		System.out.println("ore lavoro giorno " + numeroOreLavoroGiorno);
-		System.out.println("ore lavoro commessa " + numeroOreLavoroCommessa);
-		System.out.println("ore lavoro totali " + numeroOreLavoroTotali);
-
 	}
-
 }
