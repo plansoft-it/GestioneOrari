@@ -37,7 +37,7 @@ Utilizzata per ridurre le righe di codice per metodi e costruttori, vedi [sito L
 3. Chiudere l'installer.
 7. Spostare  il *lombok.jar* nella cartella *lib* del progetto in cui vogliamo installare la dipendenza (Drag and Drop nell'IDEE, navigando nel filesystem, ... )
 8. Nell'IDEE selezionare nuovamente il progetto,  premere **F5** sulla propria tastiera oppure `Rigth Click -> Refresh`
-9. Nella cartella *lib* dovrebbe essere comparso il *lombok.jar*. Selezionarlo e `Rigth Click -> Build Path -> Add to Build Path`
+6. Nella cartella *lib* dovrebbe essere comparso il *lombok.jar*. Selezionarlo e `Rigth Click -> Build Path -> Add to Build Path`
 7. Chiudere e riaprire l'IDEE.
 
 #### Cosa fare se dopo l'installazione Eclipse non si dovesse aprire
