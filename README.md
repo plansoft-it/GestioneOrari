@@ -35,7 +35,7 @@ Utilizzata per ridurre le righe di codice per metodi e costruttori, vedi [sito L
 	- Se Lombok è in grado di individuare uno o più IDEE, selezionare quelli su cui si vuole installare Lombok e cliccare su **Install/Update**.
 	- Se Lombok non è in grado di individuare un IDEE, cliccare su **Specify location...** e selezionare l'eseguibile dell'IDEE su cui si vuole installare Lombok. Cliccare quindi **Install/Update**.
 3. Chiudere l'installer.
-7. Spostare  il *lombok.jar* nella cartella *lib* del progetto in cui vogliamo installare la dipendenza (Drag and Drop nell'IDEE, navigando nel filesystem, ... )
+4. Spostare  il *lombok.jar* nella cartella *lib* del progetto in cui vogliamo installare la dipendenza (Drag and Drop nell'IDEE, navigando nel filesystem, ... )
 8. Nell'IDEE selezionare nuovamente il progetto,  premere **F5** sulla propria tastiera oppure `Rigth Click -> Refresh`
 6. Nella cartella *lib* dovrebbe essere comparso il *lombok.jar*. Selezionarlo e `Rigth Click -> Build Path -> Add to Build Path`
 7. Chiudere e riaprire l'IDEE.
