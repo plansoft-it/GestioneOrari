@@ -94,18 +94,20 @@ Framework per la simulazione delle dipendenze di una classe durante gli unit tes
 
 ## Compilazione
 
-- Posizionarsi nella cartella contenenti i binari ed eseguire da terminale :
+- Posizionarsi nella cartella contenenti i binari ed eseguire da terminale:
+
 `jar cfvm GO.jar META-INF/MANIFEST.MF *.class errors/*.class parser/*.class processed/*.class row/*.class`
 
-- Se non si hanno a disposizione i binari, e necessario posizionarsi nella cartella con i sorgenti ed eseguire i seguenti comandi
+- Se non si hanno a disposizione i binari, e necessario posizionarsi nella cartella con i sorgenti ed eseguire i seguenti comandi:
+
 `javac -cp "../lib/lombok.jar" *.java errors/*.java parser/*.java processed/*.java row/*.java` 
 
-	`jar cfvm GO.jar META-INF/MANIFEST.MF *.class errors/*.class parser/*.class processed/*.class row/*.class`
+`jar cfvm GO.jar META-INF/MANIFEST.MF *.class errors/*.class parser/*.class processed/*.class row/*.class`
 
-	Su Linux:
+Su Linux:
 `rm *.class errors/*.class parser/*.class processed/*.class row/*.class`
 
-	Su Windows:
+Su Windows:
 `del *.class errors\*.class parser\*.class processed\*.class row\*.class`
 
 
