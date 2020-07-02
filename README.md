@@ -83,7 +83,7 @@ Framework per la simulazione delle dipendenze di una classe durante gli unit tes
 6. Chiudere e riaprire l'IDEE.
 
 
-#### TL;DR scaricare Mockito 3.3.3
+#### Scaricare Mockito 3.3.3
 1. Scaricare i seguenti *jar*
 	- [mockito 3.3.3](https://repo1.maven.org/maven2/org/mockito/mockito-core/3.3.3/mockito-core-3.3.3.jar)
 	- [byte-buddy 1.10.5](https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.10.5/byte-buddy-1.10.5.jar)
