@@ -104,9 +104,10 @@ Framework per la simulazione delle dipendenze di una classe durante gli unit tes
 
 `jar cfvm GO.jar META-INF/MANIFEST.MF *.class errors/*.class parser/*.class processed/*.class row/*.class`
 
+Una volta generato l'eseguibile GO.jar è possibile rimuovere i file compilati.
+
 Su Linux:
 `rm *.class errors/*.class parser/*.class processed/*.class row/*.class`
 
 Su Windows:
 `del *.class errors\*.class parser\*.class processed\*.class row\*.class`
-
