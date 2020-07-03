@@ -98,7 +98,7 @@ Framework per la simulazione delle dipendenze di una classe durante gli unit tes
 
 `jar cfvm GO.jar META-INF/MANIFEST.MF *.class errors/*.class parser/*.class processed/*.class row/*.class`
 
-- Se non si hanno a disposizione i binari, e necessario posizionarsi nella cartella con i sorgenti ed eseguire i seguenti comandi:
+- Se non si hanno a disposizione i binari, è necessario posizionarsi nella cartella con i sorgenti ed eseguire i seguenti comandi:
 
 `javac -cp "../lib/lombok.jar" *.java errors/*.java parser/*.java processed/*.java row/*.java` 
 
@@ -109,5 +109,4 @@ Su Linux:
 
 Su Windows:
 `del *.class errors\*.class parser\*.class processed\*.class row\*.class`
-
 
