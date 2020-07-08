@@ -91,3 +91,23 @@ Framework per la simulazione delle dipendenze di una classe durante gli unit tes
 	- [objenesis 2.6](https://repo1.maven.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6.jar)
 2. Spostare i *jar* nella cartella *lib*.
 3. Nell'IDEE, su ogni *jar* in *lib* eseguire `Rigth Click -> Build Path -> Add to Build Path`.
+
+## Compilazione
+
+- Posizionarsi nella cartella contenenti i binari ed eseguire da terminale:
+
+`jar cfvm GO.jar META-INF/MANIFEST.MF *.class errors/*.class parser/*.class processed/*.class row/*.class`
+
+- Se non si hanno a disposizione i binari, è necessario posizionarsi nella cartella con i sorgenti ed eseguire i seguenti comandi:
+
+`javac -cp "../lib/lombok.jar" *.java errors/*.java parser/*.java processed/*.java row/*.java` 
+
+`jar cfvm GO.jar META-INF/MANIFEST.MF *.class errors/*.class parser/*.class processed/*.class row/*.class`
+
+Una volta generato l'eseguibile GO.jar è possibile rimuovere i file compilati.
+
+Su Linux:
+`rm *.class errors/*.class parser/*.class processed/*.class row/*.class`
+
+Su Windows:
+`del *.class errors\*.class parser\*.class processed\*.class row\*.class`
